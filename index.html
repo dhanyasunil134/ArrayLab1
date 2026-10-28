@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArrayLab | Array Declaration Compiler</title>
+    <link rel="stylesheet" href="./static/style.css">
+    <script src="./static/app.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <div class="brand-icon">A</div>
+        <div>
+            <h1>ArrayLab</h1>
+            <p>Array Declaration Compiler</p>
+        </div>
+    </div>
+    <span class="language-tag">C LANGUAGE</span>
+</header>
+
+<main class="page">
+
+    <section class="welcome">
+        <div>
+            <p class="eyebrow">COMPILER PLAYGROUND</p>
+            <h2>Understand array declarations.</h2>
+            <p>Write C array declarations and analyse them through lexical analysis,
+                syntax analysis and semantic checks.</p>
+        </div>
+        <div class="welcome-icon">[ ]</div>
+    </section>
+
+    <section class="main-grid">
+
+        <div class="panel editor-panel">
+            <div class="panel-header">
+                <div>
+                    <h2>Source Code</h2>
+                    <p>Enter your array declarations below.</p>
+                </div>
+                <span class="file-tag">main.c</span>
+            </div>
+
+            <div class="editor-toolbar">
+                <label for="exampleSelect">Examples</label>
+                <select id="exampleSelect">
+                    <option value="">Choose an example</option>
+                    <option value="valid">Valid declarations</option>
+                    <option value="bounds">Zero-sized array</option>
+                    <option value="syntax">Missing semicolon</option>
+                    <option value="invalid">Invalid character</option>
+                </select>
+            </div>
+
+            <div class="editor-wrap">
+                <div id="lineNumbers" class="line-numbers">1</div>
+                <textarea
+                    id="sourceCode"
+                    spellcheck="false"
+                    aria-label="C source code"
+                    placeholder="int marks[5];"
+                >int marks[5];
+float prices[3];</textarea>
+            </div>
+
+            <div class="editor-footer">
+                <span id="lineCount">2 lines</span>
+                <span id="editorInfo">C source editor</span>
+            </div>
+
+            <div class="editor-actions">
+                <button id="compileBtn" class="primary-btn">▶ Compile Code</button>
+                <button id="clearBtn" class="secondary-btn">Clear</button>
+                <button id="copyBtn" class="secondary-btn">Copy Code</button>
+            </div>
+        </div>
+
+        <div class="panel pipeline-panel">
+            <div class="panel-header">
+                <div>
+                    <h2>Compilation Pipeline</h2>
+                    <p>Stages of the compilation process.</p>
+                </div>
+            </div>
+
+            <div class="pipeline">
+
+                <div class="pipeline-step" id="lexicalStep">
+                    <div class="stage-number">01</div>
+                    <div class="stage-copy">
+                        <h3>Lexical Analysis</h3>
+                        <p>Recognises tokens</p>
+                    </div>
+                    <span class="stage-status">Waiting</span>
+                </div>
+
+                <div class="pipeline-step" id="syntaxStep">
+                    <div class="stage-number">02</div>
+                    <div class="stage-copy">
+                        <h3>Syntax Analysis</h3>
+                        <p>Checks grammar rules</p>
+                    </div>
+                    <span class="stage-status">Waiting</span>
+                </div>
+
+                <div class="pipeline-step" id="semanticStep">
+                    <div class="stage-number">03</div>
+                    <div class="stage-copy">
+                        <h3>Semantic Analysis</h3>
+                        <p>Checks array size</p>
+                    </div>
+                    <span class="stage-status">Waiting</span>
+                </div>
+
+                <div class="pipeline-step" id="resultStep">
+                    <div class="stage-number">04</div>
+                    <div class="stage-copy">
+                        <h3>Compilation Result</h3>
+                        <p>Displays the result</p>
+                    </div>
+                    <span class="stage-status">Waiting</span>
+                </div>
+
+            </div>
+
+            <div class="result-card">
+                <span id="status" class="result-badge">Ready</span>
+                <p id="resultMessage">Enter your code and click Compile Code.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="panel output-panel">
+        <div class="panel-header">
+            <div>
+                <h2>Compiler Output</h2>
+                <p>Messages returned by the compiler.</p>
+            </div>
+            <button id="copyOutputBtn" class="secondary-btn">Copy Output</button>
+        </div>
+
+        <pre id="output" class="output">Compiler output will appear here...</pre>
+    </section>
+
+    <section class="bottom-grid">
+
+        <div class="panel">
+            <div class="panel-header">
+                <div>
+                    <h2>Symbol Table</h2>
+                    <p>Declared arrays and their properties.</p>
+                </div>
+            </div>
+
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Array Name</th>
+                            <th>Data Type</th>
+                            <th>Size</th>
+                        </tr>
+                    </thead>
+                    <tbody id="symbolTable">
+                        <tr>
+                            <td colspan="3" class="empty-cell">
+                                Compile code to view symbols.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel tree-panel">
+            <div class="panel-header">
+                <div>
+                    <h2>Syntax Tree</h2>
+                    <p>Visual representation of array declarations.</p>
+                </div>
+            </div>
+
+            <div id="syntaxTree" class="syntax-tree">
+                <p class="empty-cell">Compile your code to view the syntax tree.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>ArrayLab · Educational Compiler Project</p>
+    </footer>
+
+</main>
+
+</body>
+</html>
